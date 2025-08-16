@@ -1,4 +1,5 @@
 
+
 =======
 # Factory Mind / Calouro DCOMP
 
@@ -159,3 +160,5 @@ Estado do Paradigma Funcional: BOM (núcleo), com efeitos devidamente isolados. 
 
 URL antiga de referência / deploy (histórico):
 https://idleufs.netlify.app/
+=======
+Jogo na plataforma Netlify: https://idleufs.netlify.app/
