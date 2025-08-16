@@ -1,1 +1,1 @@
-https://idleufs.netlify.app/
+Jogo na plataforma netlify: https://idleufs.netlify.app/
