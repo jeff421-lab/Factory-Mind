@@ -4,14 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Factory Mind</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
     <div id="game-root">
         <h1>Perguntar a data da prova</h1>
     <div>Nível de perturbação: <span id="score">0</span></div>
         <button id="score-btn" type="button" aria-label="Ganhar um ponto">Ganhar ponto</button>
+        <div class="upgrades">
+            <button id="Upgrade" class="upgrade-btn" data-inc="1" type="button" aria-label="Upgrade +1">Upgrade +1</button>
+            <button class="upgrade-btn" data-inc="2" type="button" aria-label="Upgrade +2">Upgrade +2</button>
+            <button class="upgrade-btn" data-inc="5" type="button" aria-label="Upgrade +5">Upgrade +5</button>
+            <button class="upgrade-btn" data-inc="10" type="button" aria-label="Upgrade +10">Upgrade +10</button>
+        </div>
+        <div>Total Upgrades: <span id="PontosQ">0</span></div>
     </div>
-    <script src="src/index.js"></script>
+        
+    </div>
+    <script src="index.js"></script>
 </body>
 </html>

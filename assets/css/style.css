@@ -1,7 +1,8 @@
 /* Estilos principais do jogo */
 :root {
     /* Variáveis CSS */
-    --primary-color: #3498db;
+   /* --primary-color: #3498db;  */
+   --primary-color: #db3434;
     --secondary-color: #2ecc71;
     --space: 16px;
     --radius: 16px;
