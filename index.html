@@ -4,14 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Factory Mind</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="./style.css" />
 </head>
-<body>
-    <div id="game-root">
-        <h1>Perguntar a data da prova</h1>
-    <div>Nível de perturbação: <span id="score">0</span></div>
-        <button id="score-btn" type="button" aria-label="Ganhar um ponto">Ganhar ponto</button>
+<body data-base-click="1">
+    <div class="page-grid">
+    <section class="genius-embed" aria-label="Jogo Genius">
+            <h2>Jogo Genius</h2>
+            <div id="genius1" class="genius-root">
+                <div class="genius-board">
+                    <div class="color-pad" data-color="green"></div>
+                    <div class="color-pad" data-color="red"></div>
+                    <div class="color-pad" data-color="yellow"></div>
+                    <div class="color-pad" data-color="blue"></div>
+                </div>
+                <div class="controls">
+                    <button class="start-btn">Iniciar</button>
+                    <div class="info-display">Nível: <span class="level">0</span></div>
+                    <div class="lives" id="genius-lives" title="Vidas">
+                        Vidas: <span id="genius-lives-count">1</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="game-root">
+            <h1 class="section-title">Factory Mind — Clicker</h1>
+            <div class="stats">
+                <div class="stat">
+                    <div class="label">Produção</div>
+                    <div class="value" id="score">10000</div>
+                </div>
+                <div class="stat">
+                    <div class="label">Poder do Clicker</div>
+                    <div class="value" id="PoderClicker">1</div>
+                </div>
+            </div>
+            <button id="score-btn" type="button" aria-label="Produzir">Produzir</button>
+            <h2 class="section-subtitle">Upgrades</h2>
+            <div class="upgrades">
+                <button id="Upgrade" class="upgrade-btn" data-inc="1" data-cost="10" type="button" aria-label="Upgrade +1">Upgrade +1</button>
+                <button class="upgrade-btn" data-inc="2" data-cost="50" type="button" aria-label="Upgrade +2">Upgrade +2</button>
+                <button class="upgrade-btn" data-inc="5" data-cost="150" type="button" aria-label="Upgrade +5">Upgrade +5</button>
+                <button class="upgrade-btn" data-inc="10" data-cost="500" type="button" aria-label="Upgrade +10">Upgrade +10</button>
+            </div>
+            <h2 class="section-subtitle">Upgrades únicos</h2>
+            <div class="unique-upgrades">
+                <button id="upgrade-unico-clique2" class="one-shot" data-cost="10000" type="button" aria-label="Upgrade misterioso (compra única)">
+                    Upgrade misterioso (compra única)
+                </button>
+            </div>
+        </div>
     </div>
-    <script src="src/index.js"></script>
+
+    <script src="index.js"></script>
 </body>
 </html>

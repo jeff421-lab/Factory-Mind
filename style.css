@@ -1,0 +1,203 @@
+/* Estilos principais do jogo */
+:root {
+    /* Variáveis CSS */
+   /* --primary-color: #3498db;  */
+   --primary-color: #db3434;
+    --secondary-color: #2ecc71;
+    --space: 16px;
+    --radius: 16px;
+}
+body {
+    background: var(--primary-color);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* layout geral lado a lado */
+.page-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+@media (min-width: 1024px) {
+    .page-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+}
+
+/* ==== Factory (Clicker) ==== */
+#game-root {
+    background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.15));
+    padding: calc(var(--space) * 2);
+    border-radius: var(--radius);
+    text-align: center;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+}
+
+.section-title {
+    margin: 0 0 16px;
+    font-size: 1.8rem;
+    letter-spacing: .5px;
+}
+
+.section-subtitle {
+    margin: 24px 0 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    opacity: .95;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.stat {
+    background: rgba(0,0,0,0.25);
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+.stat .label { font-size: .9rem; opacity: .85; }
+.stat .value { font-size: 1.4rem; font-weight: 700; margin-top: 4px; }
+
+#score-btn {
+    padding: 12px 24px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: calc(var(--radius) / 2);
+    background: var(--secondary-color);
+    color: #fff;
+    cursor: pointer;
+    margin-top: var(--space);
+}
+#score-btn:hover {
+    background: #27ae60;
+}
+
+.upgrades, .unique-upgrades {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 12px;
+}
+.upgrade-btn, .unique-upgrades .one-shot {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    cursor: pointer;
+    transition: transform .06s ease, background .2s ease, box-shadow .2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+.upgrade-btn:hover, .unique-upgrades .one-shot:hover {
+    background: rgba(255,255,255,0.18);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.upgrade-btn:active, .unique-upgrades .one-shot:active {
+    transform: translateY(1px);
+}
+.unique-upgrades .one-shot[disabled], .unique-upgrades .one-shot[aria-disabled="true"] {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+/* Conteúdo interno dos botões de upgrade */
+.upgrade-btn .upg-inc {
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+.upgrade-btn .upg-cost, .unique-upgrades .one-shot .upg-cost {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0,0,0,0.25);
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-size: .9rem;
+}
+.upgrade-btn .cost-label, .unique-upgrades .one-shot .cost-label { opacity: .8; }
+.upgrade-btn .cost-value, .unique-upgrades .one-shot .cost-value { font-weight: 700; }
+.unique-upgrades .one-shot .upg-title { font-weight: 700; }
+.unique-upgrades .one-shot .badge {
+    background: #e67e22;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: .8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+/* ------ Estilos escopados do Genius ------ */
+.genius-embed {
+    background: rgba(0,0,0,0.2);
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+}
+
+.genius-root h2 { margin-top: 0; }
+
+.genius-board {
+    display: grid;
+    grid-template-areas:
+        "green red"
+        "yellow blue";
+    gap: 20px;
+    width: 350px;
+    height: 350px;
+    background-color: #34495e;
+    border-radius: 50%;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    margin: 20px auto;
+}
+
+.genius-root .color-pad {
+    cursor: pointer;
+    transition: filter 0.2s ease;
+    border: 5px solid #2c3e50;
+}
+.genius-root .color-pad:active { filter: brightness(1.5); }
+.genius-root .lit { filter: brightness(2.5); box-shadow: 0 0 20px 5px currentColor; }
+
+.genius-root .color-pad[data-color="green"] { grid-area: green; background-color: #2ecc71; border-radius: 100% 0 0 0; }
+.genius-root .color-pad[data-color="red"] { grid-area: red; background-color: #e74c3c; border-radius: 0 100% 0 0; }
+.genius-root .color-pad[data-color="yellow"] { grid-area: yellow; background-color: #f1c40f; border-radius: 0 0 0 100%; }
+.genius-root .color-pad[data-color="blue"] { grid-area: blue; background-color: #3498db; border-radius: 0 0 100% 0; }
+
+.genius-root .controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    background: #34495e;
+    border-radius: 15px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.genius-root .controls .info-display { margin-right: auto; margin-left: 12px; }
+.genius-root .controls .lives { display:flex; gap:6px; align-items:center; margin-left: 12px; min-height: 20px; }
+.genius-root .start-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #27ae60;
+    color: white;
+    transition: background-color 0.3s;
+}
+.genius-root .start-btn:hover { background-color: #2ecc71; }
+.genius-root .start-btn:disabled { background-color: #7f8c8d; cursor: not-allowed; }
+.genius-root .info-display { font-size: 1.2em; }
